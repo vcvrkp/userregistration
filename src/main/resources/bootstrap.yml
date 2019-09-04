@@ -1,1 +1,1 @@
-spring:    cloud:        config:          name: userregistrationapp          uri: http://localhost:9000
+spring:    cloud:        config:          name: userregistration          uri: http://localhost:9000
