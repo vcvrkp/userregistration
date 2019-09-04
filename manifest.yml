@@ -1,0 +1,15 @@
+---
+applications:
+- name: userregistrationsampl
+  memory: 1GB
+  instances: 1
+  host: userregistrationsampl
+  services:
+    - dbdemo
+    - myconfig
+    - p-redis
+    - rabbitmq
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    feature_welcomeEmail: true
+    feature_welcomeQueueName: WELCOME_EMAIL

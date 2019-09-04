@@ -1,0 +1,61 @@
+spring:
+  profiles.active: default
+---
+server:
+  port: 7001
+---
+spring:
+  profile: default
+  datasource:
+      url: jdbc:mysql://localhost:3306/dbdemo
+      username: root
+      password: krishna
+      driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    ## Hibernate Properties
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+management:
+  security:
+    enabled: false
+  endpoints.web.exposure.include: health,info,beans,env,refresh
+server:
+  port: 7001
+---
+spring:
+  profile: local
+  datasource:
+      url: jdbc:mysql://localhost:3306/dbdemo
+      username: root
+      password: krishna
+      driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    ## Hibernate Properties
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+management:
+  security:
+    enabled: false
+  endpoints.web.exposure.include: health,info,beans,env,refresh
+server:
+  port: 7001
+---
+spring:
+  profile: cloud
+management:
+  security:
+    enabled: false
+  endpoints.web.exposure.include: health,info,beans,env,refresh
+---
